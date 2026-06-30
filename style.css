@@ -63,3 +63,49 @@ body.dark-mode .theme-toggle {
   background-color: #2d2d2d;
   border-color: #444444;
 }
+
+.language-selector {
+  position: fixed;
+  top: 20px;
+  right: 80px;
+  z-index: 1000;
+}
+
+#language-dropdown {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  background-color: #ffffff;
+  color: #455a64;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+#language-dropdown:hover {
+  border-color: #3949ab;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+#language-dropdown:focus {
+  border-color: #1a237e;
+  box-shadow: 0 0 0 3px rgba(26,35,126,0.1);
+}
+
+body.dark-mode #language-dropdown {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  border-color: #444444;
+}
+
+body.dark-mode #language-dropdown:hover {
+  border-color: #7986cb;
+}
+
+body.dark-mode #language-dropdown:focus {
+  border-color: #90caf9;
+  box-shadow: 0 0 0 3px rgba(144,202,249,0.1);
+}
