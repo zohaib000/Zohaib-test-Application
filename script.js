@@ -95,8 +95,6 @@ function toggleTheme() {
   }
 }
 
-const languageDropdown = document.getElementById('language-dropdown');
-
 function updateContent(language) {
   const elements = document.querySelectorAll('[data-i18n]');
   elements.forEach(element => {
@@ -108,6 +106,7 @@ function updateContent(language) {
 }
 
 function initLanguage() {
+  const languageDropdown = document.getElementById('language-dropdown');
   const savedLanguage = localStorage.getItem('language') || 'en';
   languageDropdown.value = savedLanguage;
   updateContent(savedLanguage);
@@ -119,8 +118,12 @@ function changeLanguage(event) {
   updateContent(selectedLanguage);
 }
 
-initTheme();
-initLanguage();
+document.addEventListener('DOMContentLoaded', function() {
+  initTheme();
+  initLanguage();
 
-themeToggle.addEventListener('click', toggleTheme);
-languageDropdown.addEventListener('change', changeLanguage);
+  themeToggle.addEventListener('click', toggleTheme);
+  
+  const languageDropdown = document.getElementById('language-dropdown');
+  languageDropdown.addEventListener('change', changeLanguage);
+});
