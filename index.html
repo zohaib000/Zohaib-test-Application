@@ -1,59 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Test App</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Showcase</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav class="navigation-bar">
-    <div class="nav-brand">
-      <span data-i18n="brandName">Test App</span>
-    </div>
-    <ul class="nav-menu">
-      <li class="nav-item"><a href="#home" class="nav-link active" data-i18n="navHome">Home</a></li>
-      <li class="nav-item"><a href="#about" class="nav-link" data-i18n="navAbout">About</a></li>
-      <li class="nav-item"><a href="#getting-started" class="nav-link" data-i18n="navGettingStarted">Getting Started</a></li>
-    </ul>
-    <div class="nav-controls">
-      <div class="language-selector">
-        <select id="language-dropdown" aria-label="Select language">
-          <option value="en">English</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-        </select>
-      </div>
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-        <span class="toggle-icon">🌙</span>
-      </button>
-    </div>
-  </nav>
-  <main class="main-content">
-    <h1 data-i18n="title">Hello World</h1>
-  <p data-i18n="subtitle">This is a simple test app.</p>
-  
-  <section id="about">
-    <h2 data-i18n="aboutTitle">About Our Platform</h2>
-    <p data-i18n="aboutText">Welcome to our innovative platform designed to simplify your workflow and enhance productivity. We provide cutting-edge solutions tailored to meet your specific needs.</p>
-    
-    <h3 data-i18n="featuresTitle">Key Features</h3>
-    <p data-i18n="featuresText">Our platform offers a comprehensive suite of tools that empower users to achieve their goals efficiently. From intuitive interfaces to powerful integrations, we've got you covered.</p>
-    
-    <h3 data-i18n="whyTitle">Why Choose Us</h3>
-    <p data-i18n="whyText">With years of experience and a commitment to excellence, we deliver reliable solutions that scale with your business. Join thousands of satisfied users who trust our platform.</p>
-  </section>
-  
-  <section id="getting-started">
-    <h2 data-i18n="gettingStartedTitle">Getting Started</h2>
-    <p data-i18n="gettingStartedText">Begin your journey with our platform in just a few simple steps. Our streamlined onboarding process ensures you're up and running quickly.</p>
-    
-    <h3 data-i18n="setupTitle">Easy Setup</h3>
-    <p data-i18n="setupText">No complicated configurations required. Our intuitive setup wizard guides you through the process, making it easy to get started right away.</p>
-    
-    <h3 data-i18n="supportTitle">Comprehensive Support</h3>
-    <p data-i18n="supportText">Access our extensive documentation, video tutorials, and dedicated support team whenever you need assistance. We're here to help you succeed.</p>
-  </section>
-  </main>
-  <script src="script.js"></script>
+    <header>
+        <h1>Photo Showcase</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>Welcome to Photo Showcase</h2>
+            <p>Discover stunning photography from around the world.</p>
+        </section>
+
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <!-- Gallery items would go here -->
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>For support, please email us at <a href="mailto:support@photoshowcase.com">support@photoshowcase.com</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Photo Showcase. For support contact us at <a href="mailto:support@photoshowcase.com">support@photoshowcase.com</a></p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
