@@ -6,6 +6,10 @@ const toggleIcon = document.querySelector('.toggle-icon');
 
 const translations = {
   en: {
+    brandName: "Test App",
+    navHome: "Home",
+    navAbout: "About",
+    navGettingStarted: "Getting Started",
     title: "Hello World",
     subtitle: "This is a simple test app.",
     aboutTitle: "About Our Platform",
@@ -22,6 +26,10 @@ const translations = {
     supportText: "Access our extensive documentation, video tutorials, and dedicated support team whenever you need assistance. We're here to help you succeed."
   },
   es: {
+    brandName: "Aplicación de Prueba",
+    navHome: "Inicio",
+    navAbout: "Acerca de",
+    navGettingStarted: "Primeros Pasos",
     title: "Hola Mundo",
     subtitle: "Esta es una aplicación de prueba simple.",
     aboutTitle: "Sobre Nuestra Plataforma",
@@ -38,6 +46,10 @@ const translations = {
     supportText: "Acceda a nuestra amplia documentación, tutoriales en video y equipo de soporte dedicado cuando necesite asistencia. Estamos aquí para ayudarle a tener éxito."
   },
   fr: {
+    brandName: "Application de Test",
+    navHome: "Accueil",
+    navAbout: "À Propos",
+    navGettingStarted: "Commencer",
     title: "Bonjour le Monde",
     subtitle: "Ceci est une application de test simple.",
     aboutTitle: "À Propos de Notre Plateforme",
@@ -54,6 +66,10 @@ const translations = {
     supportText: "Accédez à notre documentation complète, nos tutoriels vidéo et notre équipe d'assistance dédiée chaque fois que vous avez besoin d'aide. Nous sommes là pour vous aider à réussir."
   },
   de: {
+    brandName: "Test-App",
+    navHome: "Startseite",
+    navAbout: "Über",
+    navGettingStarted: "Erste Schritte",
     title: "Hallo Welt",
     subtitle: "Dies ist eine einfache Test-App.",
     aboutTitle: "Über Unsere Plattform",
@@ -118,9 +134,60 @@ function changeLanguage(event) {
   updateContent(selectedLanguage);
 }
 
+function initNavigation() {
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+      
+      const targetId = this.getAttribute('href').substring(1);
+      
+      if (targetId === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          const navHeight = document.querySelector('.navigation-bar').offsetHeight;
+          const targetPosition = targetElement.offsetTop - navHeight - 20;
+          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        }
+      }
+    });
+  });
+  
+  window.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('section[id]');
+    const navHeight = document.querySelector('.navigation-bar').offsetHeight;
+    let currentSection = 'home';
+    
+    if (window.scrollY > 100) {
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - navHeight - 100;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        
+        if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+    }
+    
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + currentSection) {
+        link.classList.add('active');
+      }
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   initTheme();
   initLanguage();
+  initNavigation();
 
   themeToggle.addEventListener('click', toggleTheme);
   
